@@ -9,6 +9,8 @@ Group:		Applications/Networking
 Group(de):	Applikationen/Netzwerkwesen
 Group(pl):	Aplikacje/Sieciowe
 Source0:	ftp://ftp.slctech.org/pub/%{name}-%{version}.src.tgz
+Patch0:		%{name}-CLK_TCK.patch
+Patch1:		%{name}-Makefile.patch
 URL:		http://www.slctech.org/~mackay/netwatch.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,6 +28,8 @@ routera i podsumowania
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure2_13
@@ -33,18 +37,16 @@ routera i podsumowania
 
 %install
 rm -rf $RPM_BUILD_ROOT
-#cd $RPM_BUILD_DIR/netwatch-1.0a
-%{__make} install
+%{__make} install DESTDIR="$RPM_BUILD_ROOT"
 
 gzip -fn9 README README.performance TODO CHANGES BUGS \
-netwatch.%{version}.lsm
+	netwatch-%{version}.lsm
 
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(755,root,root) %{_bindir}/netwatch
-%attr(755,root,root) %{_bindir}/netresolv
-%{_prefix}/man/man1/netwatch.1*
+%attr(755,root,root) %{_bindir}/*
+%{_mandir}/*/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
