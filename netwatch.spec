@@ -10,8 +10,6 @@ Group(de):	Applikationen/Netzwerkwesen
 Group(pl):	Aplikacje/Sieciowe
 Source0:	ftp://ftp.slctech.org/pub/%{name}-%{version}.src.tgz
 URL:		http://www.slctech.org/~mackay/netwatch.html
-BuildRequires:	automake
-BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
@@ -30,10 +28,7 @@ routera i podsumowania
 %setup -q
 
 %build
-aclocal
-autoconf
-%configure
-
+%configure2_13
 %{__make}
 
 %install
@@ -41,7 +36,8 @@ rm -rf $RPM_BUILD_ROOT
 #cd $RPM_BUILD_DIR/netwatch-1.0a
 %{__make} install
 
-gzip -fn9 README README.performance TODO CHANGES BUGS netwatch.1.0a.lsm
+gzip -fn9 README README.performance TODO CHANGES BUGS \
+netwatch.%{version}.lsm
 
 %files
 %defattr(644,root,root,755)
@@ -49,7 +45,6 @@ gzip -fn9 README README.performance TODO CHANGES BUGS netwatch.1.0a.lsm
 %attr(755,root,root) %{_bindir}/netwatch
 %attr(755,root,root) %{_bindir}/netresolv
 %{_prefix}/man/man1/netwatch.1*
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
