@@ -7,6 +7,7 @@ License:	GPL
 Vendor:		Gordon MacKay Consulting
 Group:		Applications/Networking
 Source0:	ftp://ftp.slctech.org/pub/%{name}-%{version}.src.tgz
+# Source0-md5:	0d9bbfe6930e058ea6c5eb9bacffdb77
 Patch0:		%{name}-CLK_TCK.patch
 Patch1:		%{name}-Makefile.patch
 URL:		http://www.slctech.org/~mackay/netwatch.html
