@@ -12,7 +12,7 @@ Source0:	http://www.slctech.org/~mackay/%{name}-%{version}.src.tgz
 Patch0:		%{name}-CLK_TCK.patch
 Patch1:		%{name}-Makefile.patch
 URL:		http://www.slctech.org/~mackay/netwatch.html
-BuildRequires:  ncurses-devel
+BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
