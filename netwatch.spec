@@ -37,12 +37,9 @@ routera i podsumowania
 rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR="$RPM_BUILD_ROOT"
 
-gzip -fn9 README README.performance TODO CHANGES BUGS \
-	netwatch-%{version}.lsm
-
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README README.performance TODO CHANGES BUGS netwatch-%{version}.lsm
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/*/*
 
