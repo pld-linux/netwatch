@@ -1,0 +1,45 @@
+diff -urN netwatch-1.0a-orig/dispdata.c netwatch-1.0a/dispdata.c
+--- netwatch-1.0a-orig/dispdata.c	Sat Nov 17 01:03:06 2001
++++ netwatch-1.0a/dispdata.c	Sat Nov 17 01:04:12 2001
+@@ -12,6 +12,7 @@
+ #include "netwatch.h"
+ #include "curs.h"
+ #include <sys/time.h>
++#include <time.h>
+ 
+ #ifdef NEWCURSES_SUPP
+ #include <ncurses/curses.h>
+diff -urN netwatch-1.0a-orig/lookdata.c netwatch-1.0a/lookdata.c
+--- netwatch-1.0a-orig/lookdata.c	Sat Nov 17 01:03:06 2001
++++ netwatch-1.0a/lookdata.c	Sat Nov 17 01:06:09 2001
+@@ -70,7 +70,7 @@
+ 
+ void displaytime(clock_t m)
+ {
+-   printf("COUNT: %05d SEC=%5d\n",count,m/CLK_TCK);
++   printf("COUNT: %05d SEC=%5d\n",count,m/CLK_PER_SEC);
+ }
+ 
+ void displaylength(unsigned int len)
+diff -urN netwatch-1.0a-orig/netwatch.c netwatch-1.0a/netwatch.c
+--- netwatch-1.0a-orig/netwatch.c	Sat Nov 17 01:03:06 2001
++++ netwatch-1.0a/netwatch.c	Sat Nov 17 01:11:25 2001
+@@ -72,6 +72,7 @@
+ */
+ #include <sys/wait.h>
+ #include <sys/time.h>
++#include <time.h>
+ #include <sys/times.h>
+ #ifdef NETINET_SUPP_in
+ #include <netinet/in.h>
+@@ -1533,8 +1534,8 @@
+ 			   adjoffs = fileclk >> (simkeyrate-1);
+ /* only works for ETH logs not PPP??? */  }
+ 		     }
+-/*				   mvprintw(23,2,"CLOCK/SEC=%lu   CLK_TCK=%lu OFFS=%lu",CLOCKS_PER_SEC,CLK_TCK,offsclk); */
+-		     mactstart = mactstart + ((double)(offsclk-loff))/CLK_TCK;
++/*				   mvprintw(23,2,"CLOCK/SEC=%lu   CLOCKS_PER_SEC=%lu OFFS=%lu",CLOCKS_PER_SEC,CLOCKS_PER_SEC,offsclk); */
++		     mactstart = mactstart + ((double)(offsclk-loff))/CLOCKS_PER_SEC;
+                      actstart = (time_t)((unsigned long)(mactstart));
+ 		  }
+ 
