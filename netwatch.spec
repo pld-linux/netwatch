@@ -1,10 +1,10 @@
-Summary:	Ethernet/PPP IP Packet Monitor 
+Summary:	Ethernet/PPP IP Packet Monitor
 Summary(pl):	Monitor pakietów IP dla Ethernet/PPP
-Name:		netwatch 
-Version:	1.0a 
-Release:	1 
+Name:		netwatch
+Version:	1.0a
+Release:	1
 License:	GPL
-Vendor:		Gordon MacKay Consulting 
+Vendor:		Gordon MacKay Consulting
 Group:		Applications/Networking
 Source0:	ftp://ftp.slctech.org/pub/%{name}-%{version}.src.tgz
 Patch0:		%{name}-CLK_TCK.patch
@@ -12,7 +12,7 @@ Patch1:		%{name}-Makefile.patch
 URL:		http://www.slctech.org/~mackay/netwatch.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
+%description
 The software enables real-time viewing of network activity. Network
 usage is tracked on a per host basis. Packet and byte counts are
 available for all host communication. Router statistics and summary
