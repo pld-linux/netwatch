@@ -1,0 +1,35 @@
+diff -urN netwatch-1.0a.orig/Makefile.in netwatch-1.0a/Makefile.in
+--- netwatch-1.0a.orig/Makefile.in	Wed Feb 21 04:53:10 2001
++++ netwatch-1.0a/Makefile.in	Sat Nov 17 01:11:30 2001
+@@ -11,7 +11,7 @@
+ # CFLAGS=
+ DEFS= curs.h netwatch.h
+ OBJECTS= curs.o dispdata.o services.o netwatch.o processinetrc.o gh.o warning.o
+-INSTALLDIR=/usr/bin
++INSTALLDIR=$(DESTDIR)/usr/bin
+ 
+ all:	$(EXEC)
+ 
+@@ -22,11 +22,10 @@
+ 	$(CC) -o netwatch $(XCFLAGS) $(OBJECTS) $(XLIBS)
+ 
+ install:	$(EXEC)
+-	chown root.root $(EXEC)
+-	chmod 700 $(EXEC)
++	install -d $(INSTALLDIR) $(DESTDIR)/usr/share/man/man1
+ 	cp netwatch $(INSTALLDIR)/netwatch
+ 	cp netresolv $(INSTALLDIR)/netresolv
+-	cp netwatch.1 /usr/man/man1
++	cp netwatch.1 $(DESTDIR)/usr/share/man/man1
+ 
+ tar:
+ 	tar -C .. -czf ../netwatch-1.0a.src.tgz netwatch-1.0a
+@@ -40,7 +39,7 @@
+ curs.o:		curs.c curs.h config.h
+ dispdata.o:	dispdata.c curs.h netwatch.h config.h
+ services.o:	services.c netwatch.h
+-	$(CC) -g -c services.c
++	$(CC) -c services.c
+ netwatch.o: 	netwatch.c netwatch.h curs.h config.h
+ processinetrc.o:	processinetrc.c
+ gh.o:		gh.c config.h
