@@ -6,8 +6,6 @@ Release:	1
 License:	GPL
 Vendor:		Gordon MacKay Consulting 
 Group:		Applications/Networking
-Group(de):	Applikationen/Netzwerkwesen
-Group(pl):	Aplikacje/Sieciowe
 Source0:	ftp://ftp.slctech.org/pub/%{name}-%{version}.src.tgz
 Patch0:		%{name}-CLK_TCK.patch
 Patch1:		%{name}-Makefile.patch
