@@ -6,7 +6,8 @@ Release:	1
 License:	GPL
 Vendor:		Gordon MacKay Consulting
 Group:		Applications/Networking
-Source0:	ftp://ftp.slctech.org/pub/%{name}-%{version}.src.tgz
+#Source0Download:	http://www.slctech.org/~mackay/netwatch.htm
+Source0:	http://www.slctech.org/~mackay/%{name}-%{version}.src.tgz
 # Source0-md5:	0d9bbfe6930e058ea6c5eb9bacffdb77
 Patch0:		%{name}-CLK_TCK.patch
 Patch1:		%{name}-Makefile.patch
@@ -23,7 +24,7 @@ charts are available.
 Oprogramowanie umo¿liwia ogl±danie dzia³alno¶ci w sieci na ¿ywo.
 Wydajno¶æ sieci jest ¶ledzona w oparciu o hosty. Liczniki pakietów i
 bajtów s± dostêpne dla wszystkich po³±czeñ. Dostêpne s± statystyki
-routera i podsumowania
+routera i podsumowania.
 
 %prep
 %setup -q
@@ -36,7 +37,9 @@ routera i podsumowania
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR="$RPM_BUILD_ROOT"
+
+%{__make} install \
+	DESTDIR="$RPM_BUILD_ROOT"
 
 %files
 %defattr(644,root,root,755)
