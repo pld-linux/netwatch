@@ -1,5 +1,5 @@
 Summary:	Ethernet/PPP IP Packet Monitor
-Summary(pl):	Monitor pakietów IP dla Ethernet/PPP
+Summary(pl.UTF-8):   Monitor pakietÃ³w IP dla Ethernet/PPP
 Name:		netwatch
 Version:	1.0a
 Release:	2
@@ -21,10 +21,10 @@ usage is tracked on a per host basis. Packet and byte counts are
 available for all host communication. Router statistics and summary
 charts are available.
 
-%description -l pl
-Oprogramowanie umo¿liwia ogl±danie dzia³alno¶ci w sieci na ¿ywo.
-Wydajno¶æ sieci jest ¶ledzona w oparciu o hosty. Liczniki pakietów i
-bajtów s± dostêpne dla wszystkich po³±czeñ. Dostêpne s± statystyki
+%description -l pl.UTF-8
+Oprogramowanie umoÅ¼liwia oglÄ…danie dziaÅ‚alnoÅ›ci w sieci na Å¼ywo.
+WydajnoÅ›Ä‡ sieci jest Å›ledzona w oparciu o hosty. Liczniki pakietÃ³w i
+bajtÃ³w sÄ… dostÄ™pne dla wszystkich poÅ‚Ä…czeÅ„. DostÄ™pne sÄ… statystyki
 routera i podsumowania.
 
 %prep
