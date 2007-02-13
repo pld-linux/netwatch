@@ -1,5 +1,5 @@
 Summary:	Ethernet/PPP IP Packet Monitor
-Summary(pl.UTF-8):   Monitor pakietów IP dla Ethernet/PPP
+Summary(pl.UTF-8):	Monitor pakietów IP dla Ethernet/PPP
 Name:		netwatch
 Version:	1.0a
 Release:	2
